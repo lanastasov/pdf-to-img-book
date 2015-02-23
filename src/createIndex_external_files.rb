@@ -35,7 +35,7 @@ end
 
 
 def generate_index_html(stack)
-  stack.sort_by! { |item| item.to_s.split(/(\d+)/).map { |e| [e.to_i, e] } }
+  stack.sort!
   File.open("index.html","w") do |x|
 
 		x.puts "<!DOCTYPE html>"
@@ -59,6 +59,7 @@ end
 
 def generate_index_page(stack)
 	stack.delete("src")
+	stack.sort_by! { |item| item.to_s.split(/(\d+)/).map { |e| [e.to_i, e] } }
 	puts Dir.pwd
 	File.open("index.html","w") do |x|
 

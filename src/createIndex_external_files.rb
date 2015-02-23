@@ -3,7 +3,7 @@ stack = []
 full_stack = []
 
 Dir.glob("*") { |x|
-	full_stack << x if x != "\n"
+	full_stack << x if x != "\n" && File.directory?("#{x}") 
 }
 
 def single_folder(stack)

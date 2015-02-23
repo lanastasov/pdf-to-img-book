@@ -1,9 +1,12 @@
  img {
  	border-bottom: 1px dotted green;
+ 	margin: auto;
+	display: block;
  }
 
 #wrapper {
 	margin: auto;
+	display: inline;
 }
 
  .flx {

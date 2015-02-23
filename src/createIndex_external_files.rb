@@ -16,10 +16,10 @@ end
 
 def multiple_folders(stack)
 	Dir.foreach(".") { |file| 
-	  if file =~ /\w.jpg/ or file =~ /\w.png/
+	  if file =~ /\w.jpg/ or file =~ /\w.png/ && File.directory?("#{file}")
 		stack.push "#{file}"
 	  end
-	  if file =~ /chapter\d+/ then
+	  if file =~ /chapter\d+|appendix\d+|bibliography|glossary|^index$|preface|content/ then
 	  	Dir.chdir "#{file}"
 	  	Dir.foreach(".") { |file| 
 	  	  if file =~ /\w.jpg/ or file =~ /\w.png/

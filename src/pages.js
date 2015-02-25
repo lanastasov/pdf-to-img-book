@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	setTimeout(function() {
 		counter = 0;
-		step 	= $("img").height()+5;
+		step 	= $("img").height()+1;
 		var width = $("img").width();
 		$("#wrapper").css({
 			'width' : width*2+4+"px"

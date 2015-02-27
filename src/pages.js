@@ -7,9 +7,9 @@ $(document).ready(function() {
 			'width' : width*2+4+"px"
 		}); 
 		
-	}, 200);
+	}, 300);
 
-	var timeout = 200; /* Timeout in milliseconds*/
+	var timeout = 300; /* Timeout in milliseconds*/
     var lastKeyCode = -1;
     var timer = null;
     var number_keys = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
@@ -58,23 +58,16 @@ $(document).ready(function() {
     	};
 
     	if (keys.length > 1) {
-    		// console.log(".click"+a[keys[0]]+a[keys[1]])
     		window.location.href = $(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href');
     	} else {
     		window.location.href = $(".click"+keyObj[keys[0]]).attr('href');
-    		// console.log(".click"+a[keys[0]]);
     	}
     }
 
 	window.addEventListener("keydown", function(event){
-		// backspace
-		// if (event.keyCode == 8 ) {
-		// 	event.preventDefault();
-		// 	var s = window.location.href;
-		// 	window.location.href = s.substring(0, s.lastIndexOf('/'))+"/index.html";
-		// }
 
 		keyCheck(event);
+		
 		// escape || backspace
 		if (event.keyCode == 27 || event.keyCode == 8) {
 			var s = window.location.href;
@@ -97,50 +90,5 @@ $(document).ready(function() {
 				$(document).scrollTop(step*counter);
 			}
 		}
-
-		// if (event.keyCode == 48) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click0").attr('href');
-		// }
-		// if (event.keyCode == 49) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click1").attr('href');
-		// }
-		// if (event.keyCode == 50) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click2").attr('href');
-		// }
-		// if (event.keyCode == 51) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click3").attr('href');
-		// }
-		// if (event.keyCode == 52) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click4").attr('href');
-		// }
-		// if (event.keyCode == 53) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click5").attr('href');
-		// }
-		// if (event.keyCode == 54) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click6").attr('href');
-		// }
-		// if (event.keyCode == 55) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click7").attr('href');
-		// }
-		// if (event.keyCode == 56) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click8").attr('href');
-		// }
-		// if (event.keyCode == 57) {
-		// 	event.preventDefault();
-		// 	window.location.href = $(".click9").attr('href');
-		// }
-
-		
-		
-
 	});
 });

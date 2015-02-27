@@ -41,12 +41,27 @@ def sum_string(string, number)
 	end
 end
 
-j = files.length - 1
-while j != 0 
-	new_name = files[j].scan(/^(.*?)0/)[0][0].to_s+sum_string(files[j].scan(/\d/).join(''), j)+"."+files[j].split(".")[-1]
-	old_name = files[j]
-	File.rename("#{old_name}", "#{new_name}")
-	puts "#{old_name} -> #{new_name}"
-	j -= 1
+def increment_by(files, number)
+	j = files.length - 1
+	while j != 0 
+		new_name = files[j].scan(/^(.*?)0/)[0][0].to_s+sum_string(files[j].scan(/\d/).join(''), number)+"."+files[j].split(".")[-1]
+		old_name = files[j]
+		File.rename("#{old_name}", "#{new_name}")
+		puts "#{old_name} -> #{new_name}"
+		j -= 1
+	end
 end
 
+def increment_over_one(files)
+	j = files.length - 1
+	while j != 0 
+		new_name = files[j].scan(/^(.*?)0/)[0][0].to_s+sum_string(files[j].scan(/\d/).join(''), j)+"."+files[j].split(".")[-1]
+		old_name = files[j]
+		File.rename("#{old_name}", "#{new_name}")
+		puts "#{old_name} -> #{new_name}"
+		j -= 1
+	end
+end
+
+# increment_by(files, 1)
+increment_over_one(files)

@@ -7,7 +7,7 @@ $(document).ready(function() {
 			'width' : width*2+4+"px"
 		}); 
 		
-	}, 300);
+	}, 1000);
 
 	var timeout = 300; /* Timeout in milliseconds*/
     var lastKeyCode = -1;

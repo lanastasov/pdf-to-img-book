@@ -19,7 +19,7 @@ def multiple_folders(stack)
 	  if file =~ /\w.jpg/ or file =~ /\w.png/ && File.directory?("#{file}")
 		stack.push "#{file}"
 	  end
-	  if file =~ /chapter\d+|appendix\d+|bibliography|glossary|^index$|preface|content/ then
+	  if file =~ /chapter\d+|appendix\d+|bibliography|glossary|^index$|preface|content|introduction/ then
 	  	Dir.chdir "#{file}"
 	  	Dir.foreach(".") { |file| 
 	  	  if file =~ /\w.jpg/ or file =~ /\w.png/

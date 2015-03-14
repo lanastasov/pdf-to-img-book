@@ -9,11 +9,8 @@ img {
 	display: inline;
 }
 
-.flx {
-	display: flex;
-}
-
 body {
+	background-image: url("../background.jpg");
 	overflow-x: hidden;
 	margin: 0px;
 }
@@ -28,29 +25,14 @@ div > img.linked {
 	height:1550px;
 }
 
-.pic {
-	zoom: 1.7;
-}
-
 #center {
 	width: 1300px;
 	margin: 0px auto;
 }
 
-.width100 {
-	width: 100%;
-}
-
-.links {
-
-}
-
 #chapters {
-
-}
-
-.figures a {
-	
+	background-color: bisque;
+	width: 600px;
 }
 
 #chapters > a {
@@ -81,8 +63,4 @@ a {
 	margin-left: 50px;
 	border-bottom: 1px dotted green;
 	width: 510px;
-}
-
-#zoom200 {
-	zoom: 2;
 }

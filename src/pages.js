@@ -10,9 +10,9 @@ $(document).ready(function() {
 	}, 1000);
 
 	var timeout = 300; /* Timeout in milliseconds*/
-    var lastKeyCode = -1;
-    var timer = null;
-    var number_keys = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+	var lastKeyCode = -1;
+	var timer = null;
+	var number_keys = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
 
 	function keyCheck(event) {
 		keyCode  = event.which;
@@ -22,32 +22,31 @@ $(document).ready(function() {
 				lastKeyCode = keyCode;
 			} else {
 				clear([lastKeyCode, keyCode]);
-                lastKeyCode = -1    
+				lastKeyCode = -1
 			}
 		}
 		
-        event.stopPropagation(); //Other event listeners won't get the event
+		event.stopPropagation(); //Other event listeners won't get the event
 	};
 
 	function refresh(){
-        clearTimeout(timer);
-        timer = setTimeout(reset, timeout);
-    }
-    function clear(array_keys){
-        clearTimeout(timer);
-        keyCombi(array_keys);
-    }
-    function reset(){
-        keyCombi([lastKeyCode]);
-        lastKeyCode = -1;
-    }
+		clearTimeout(timer);
+		timer = setTimeout(reset, timeout);
+	}
+	function clear(array_keys){
+		clearTimeout(timer);
+		keyCombi(array_keys);
+	}
+	function reset(){
+		keyCombi([lastKeyCode]);
+		lastKeyCode = -1;
+	}
 
-    function keyCombi(keys){
-    	
-    	var keyObj = {
-    		'48': '0', 
-    		'49': '1',
-    		'50': '2',
+	function keyCombi(keys){
+		var keyObj = {
+			'48': '0', 
+			'49': '1',
+			'50': '2',
 			'51': '3',
 			'52': '4',
 			'53': '5',
@@ -55,14 +54,14 @@ $(document).ready(function() {
 			'55': '7',
 			'56': '8',
 			'57': '9',
-    	};
+	};
 
-    	if (keys.length > 1) {
-    		window.location.href = $(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href');
-    	} else {
-    		window.location.href = $(".click"+keyObj[keys[0]]).attr('href');
-    	}
-    }
+		if (keys.length > 1) {
+			window.location.href = $(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href');
+		} else {
+			window.location.href = $(".click"+keyObj[keys[0]]).attr('href');
+		}
+	}
 
 	window.addEventListener("keydown", function(event){
 
@@ -78,7 +77,11 @@ $(document).ready(function() {
 		// pagedown
 		if (event.keyCode == 34) {
 			event.preventDefault();
-			counter+=1;
+			if (counter < Math.floor($(document).height() / $("img").height())-1 ) {
+				counter+=1;
+			} else {
+				console.log("no more pages");
+			}
 			$(document).scrollTop(step*counter);
 		}
 

@@ -10,6 +10,8 @@ Dir.glob("*") { |x|
 	single_chapter_images << x if x != "\n" && x =~ /ScreenShot\d+.jpg|ScreenShot\d+.png/
 }
 
+folders.sort_by! { |item| item.to_s.split(/(\d+)/).map { |e| [e.to_i, e] } }
+
 folders.each { |x|
 	if Dir["#{x}/*"].empty? then
 		single_chapter_images.each { |image|

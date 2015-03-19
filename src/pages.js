@@ -71,6 +71,10 @@ $(document).ready(function() {
 		if (event.keyCode == 27 || event.keyCode == 8) {
 			var s = window.location.href;
 			s = s.substring(0, s.lastIndexOf('/'));
+			if (s.substring(0, s.lastIndexOf('/')).split("/")[s.substring(0, s.lastIndexOf('/')).split("/").length-1] != "books" &&
+			    s.substring(0, s.lastIndexOf('/')).split("/")[s.substring(0, s.lastIndexOf('/')).split("/").length-2] == "books") {
+				s = s.substring(0, s.lastIndexOf('/'));
+			}
 			window.location.href = s.substring(0, s.lastIndexOf('/'))+"/index.html";	
 		}
 

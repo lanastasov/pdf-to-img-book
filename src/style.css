@@ -48,6 +48,14 @@ div > img.linked {
   color: rgb(78, 171, 157);
 }
 
+#chapters div {
+  font-family: Verdana;
+  font-weight: 800;
+  text-align: center;
+  color: deeppink;
+  margin-top: 20px;
+}
+
 .chapters > a {
 	padding-top: 10px;
 	color: navy;

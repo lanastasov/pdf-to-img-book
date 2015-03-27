@@ -40,6 +40,14 @@ div > img.linked {
 	color: navy;
 }
 
+#chapters span {
+  font-family: Verdana;
+  font-weight: 800;
+  font-size: 20px;
+  padding-left: 60px;
+  color: rgb(78, 171, 157);
+}
+
 .chapters > a {
 	padding-top: 10px;
 	color: navy;

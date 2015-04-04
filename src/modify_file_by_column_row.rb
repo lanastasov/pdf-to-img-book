@@ -35,6 +35,7 @@ if modify_index_files_in_subfolder == true then
 
 	sub_folders.each { |x|
 		Dir.chdir("#{x}")
+		page_content = []
 		modify_index_page(line, col, insert_string, page_content)
 		Dir.chdir("../")
 

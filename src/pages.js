@@ -9,6 +9,8 @@ $(document).ready(function() {
 		
 	}, 1000);
 
+	var images = $("img");
+
 	var timeout = 300; /* Timeout in milliseconds*/
 	var lastKeyCode = -1;
 	var timer = null;
@@ -66,6 +68,25 @@ $(document).ready(function() {
 	window.addEventListener("keydown", function(event){
 
 		keyCheck(event);
+
+		// < 188 hide
+	    if (event.keyCode == 188) {
+	      event.preventDefault();
+	      // console.log($(images[counter]));
+	      $(images[counter]).hide();
+	      if (counter < images.length) {
+	        counter+=1;
+	      }
+	    }
+
+	    // > 190 show
+	    if (event.keyCode == 190) {
+	      event.preventDefault();
+	      if (counter > 0) {
+	        counter-=1;
+	      }
+	      $(images[counter]).show();
+	    }
 		
 		// escape || backspace
 		if (event.keyCode == 27 || event.keyCode == 8) {

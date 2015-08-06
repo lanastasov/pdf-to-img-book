@@ -1,12 +1,9 @@
 $(document).ready(function() {
 	setTimeout(function() {
 		counter = 0;
-		step 	= $("img").height()+1;
+		step 	= $(window).height();
 		var width = $("img").width();
-		$("#wrapper").css({
-			'width' : width*2+4+"px"
-		}); 
-		
+		$("#wrapper").prepend("<div id='dimm'><p></p></div>")
 	}, 1000);
 
 	var images = $("img");
@@ -59,9 +56,13 @@ $(document).ready(function() {
 	};
 
 		if (keys.length > 1) {
-			window.location.href = $(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href');
+			if (typeof($(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href')) !== 'undefined') {
+				window.location.href = $(".click"+keyObj[keys[0]]+keyObj[keys[1]]).attr('href');
+			}
 		} else {
-			window.location.href = $(".click"+keyObj[keys[0]]).attr('href');
+			if (typeof($(".click"+keyObj[keys[0]]).attr('href')) !== 'undefined') {
+				window.location.href = $(".click"+keyObj[keys[0]]).attr('href');
+			}
 		}
 	}
 
@@ -102,12 +103,17 @@ $(document).ready(function() {
 		// pagedown
 		if (event.keyCode == 34) {
 			event.preventDefault();
-			if (counter < Math.floor($(document).height() / $("img").height())-1 ) {
+			if (counter <= Math.floor($(document).height() / $(window).height()) ) {
 				counter+=1;
 			} else {
 				console.log("no more pages");
 			}
-			$(document).scrollTop(step*counter);
+
+			// #wrapper{padding-top: 85px; } in style.css 
+			$(document).scrollTop(counter*(step-85));
+			$("#dimm p").css({ 
+				'height' : counter*(step-85)+85-25
+			});
 		}
 
 		// pageup
@@ -115,8 +121,11 @@ $(document).ready(function() {
 			event.preventDefault();
 			if (counter > 0) {
 				counter-=1
-				$(document).scrollTop(step*counter);
+				$(document).scrollTop(counter*(step-85));
 			}
+			$("#dimm p").css({ 
+				'height' : counter*(step-85)+85-25
+			});
 		}
 	});
 });

@@ -2,11 +2,29 @@ img {
 	border-bottom: 1px dotted green;
 	margin: auto;
 	display: block;
+	width: 978px;
+}
+
+img:last-of-type {
+	border-bottom: 12px solid pink;
 }
 
 #wrapper {
-	margin: auto;
-	display: inline;
+	padding-top: 85px;
+	display: block;
+	position: relative;
+}
+
+div#dimm {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: black;
+	opacity:0.6;
+}
+#dimm p {
+	margin: 0px;
 }
 
 body {

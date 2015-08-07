@@ -49,21 +49,24 @@ div > img.linked {
 }
 
 #chapters {
-	background-color: bisque;
+	background-color: #D8D3CC;
 	width: 600px;
 }
 
 #chapters > a {
-	padding-top: 10px;
-	color: navy;
+	padding-top: 9px;
+	color: #58589E;
+	text-decoration: none;
 }
 
 #chapters span {
   font-family: Verdana;
   font-weight: 800;
-  font-size: 20px;
-  padding-left: 60px;
+  font-size: 24px;
+  text-align: center;
   color: rgb(78, 171, 157);
+  display: block;
+  padding-top: 20px;
 }
 
 #chapters div {

@@ -35,7 +35,7 @@ end
 
 
 def generate_index_html(stack)
-  stack.sort!
+  stack.sort_by! { |item| item.to_s.split(/(\d+)/).map { |e| [e.to_i, e] } }
   File.open("index.html","w") do |x|
 
 		x.puts "<!DOCTYPE html>"

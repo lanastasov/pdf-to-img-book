@@ -60,13 +60,15 @@ end
 def generate_index_page(stack)
 	stack.delete("src")
 	stack.delete("content")
+	stack.delete("introduction")
 	stack.sort_by! { |item| item.to_s.split(/(\d+)/).map { |e| [e.to_i, e] } }
 	stack.length.times do |j|
 		if stack[0] =~ /appendix\d+|bibliography|glossary|^index$|preface/ then
 			stack.rotate!(1)
 		end
 	end
-	stack.unshift("content")
+	stack.unshift("introduction")
+	stack.push("content")
 	puts Dir.pwd
 	File.open("index.html","w") do |x|
 
